@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+<units name="litre_per_farad_second">
+	<unit units="litre" />
+	<unit exponent="-1" units="farad" />
+	<unit exponent="-1" units="second" />
+</units>
+<component name="environment">
+	<variable id="environment_time" name="time" public_interface="out" units="ms" />
+</component>
+<component name="INa">
+	<variable id="environment_time" name="time" public_interface="out" units="ms" />
+	<variable name="V" public_interface="in" units="mV" />
+	<variable name="time" public_interface="in" units="ms" />
+	<variable name="Temp_Scale" units="dimensionless" />
+	<variable name="alpha1" units="per_ms" />
+	<variable name="beta1" units="per_ms" />
+	<variable name="gamma1" units="per_ms" />
+	<variable name="Delta1" units="per_ms" />
+	<variable name="On" units="per_ms" />
+	<variable name="Of" units="per_ms" />
+	<variable name="GammaGamma" units="per_ms" />
+	<variable name="DeltaDelta" units="per_ms" />
+	<variable name="epsilon" units="per_ms" />
+	<variable name="omega_na" units="per_ms" />
+	<variable name="rho" units="per_ms" />
+	<variable name="mu" units="per_ms" />
+	<variable name="Cn" units="per_ms" />
+	<variable name="Cf" units="per_ms" />
+	<variable name="parameter_a" units="dimensionless" />
+	<variable name="k12" units="per_ms" />
+	<variable name="k23" units="per_ms" />
+	<variable name="k34" units="per_ms" />
+	<variable name="k45" units="per_ms" />
+	<variable name="k56" units="per_ms" />
+	<variable name="k67" units="per_ms" />
+	<variable name="k89" units="per_ms" />
+	<variable name="k910" units="per_ms" />
+	<variable name="k1011" units="per_ms" />
+	<variable name="k1112" units="per_ms" />
+	<variable name="k1213" units="per_ms" />
+	<variable name="k57" units="per_ms" />
+	<variable name="k21" units="per_ms" />
+	<variable name="k32" units="per_ms" />
+	<variable name="k43" units="per_ms" />
+	<variable name="k54" units="per_ms" />
+	<variable name="k65" units="per_ms" />
+	<variable name="k76" units="per_ms" />
+	<variable name="k98" units="per_ms" />
+	<variable name="k109" units="per_ms" />
+	<variable name="k1110" units="per_ms" />
+	<variable name="k1211" units="per_ms" />
+	<variable name="k1312" units="per_ms" />
+	<variable name="k75" units="per_ms" />
+	<variable name="k81" units="per_ms" />
+	<variable name="k92" units="per_ms" />
+	<variable name="k103" units="per_ms" />
+	<variable name="k114" units="per_ms" />
+	<variable name="k125" units="per_ms" />
+	<variable name="k136" units="per_ms" />
+	<variable name="k18" units="per_ms" />
+	<variable name="k29" units="per_ms" />
+	<variable name="k310" units="per_ms" />
+	<variable name="k411" units="per_ms" />
+	<variable name="k512" units="per_ms" />
+	<variable name="k613" units="per_ms" />
+	<math>
+		<apply>
+			<eq />
+			<ci>FoverRT</ci>
+			<apply>
+				<divide />
+				<cn units="dimensionless">1</cn>
+				<ci>RToverF</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>KToverH</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<cn units="joule_per_kelvin">1.381e-23</cn>
+					<ci>TNa</ci>
+				</apply>
+				<cn units="joule_ms">6.626e-31</cn>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>RTNa</ci>
+			<apply>
+				<times />
+				<ci>Rgas</ci>
+				<ci>TNa</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>gamma1</ci>
+			<apply>
+				<times />
+				<ci>Temp_Scale</ci>
+				<ci>KToverH</ci>
+				<apply>
+					<exp />
+					<apply>
+						<plus />
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole">196336.575735923</cn>
+							</apply>
+							<ci>RTNa</ci>
+						</apply>
+						<apply>
+							<divide />
+							<cn units="joule_per_mole_kelvin">529.952</cn>
+							<ci>Rgas</ci>
+						</apply>
+						<apply>
+							<divide />
+							<apply>
+								<times />
+								<cn units="dimensionless">2.78084918596045</cn>
+								<ci>V</ci>
+							</apply>
+							<ci>RTNaF</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>Delta1</ci>
+			<apply>
+				<times />
+				<ci>Temp_Scale</ci>
+				<ci>KToverH</ci>
+				<apply>
+					<exp />
+					<apply>
+						<plus />
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole">133689.9304091</cn>
+							</apply>
+							<ci>RTNa</ci>
+						</apply>
+						<apply>
+							<divide />
+							<cn units="joule_per_mole_kelvin">229.205</cn>
+							<ci>Rgas</ci>
+						</apply>
+						<apply>
+							<divide />
+							<apply>
+								<times />
+								<apply>
+									<minus />
+									<cn units="dimensionless">1.55804214553883</cn>
+								</apply>
+								<ci>V</ci>
+							</apply>
+							<ci>RTNaF</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>On</ci>
+			<apply>
+				<times />
+				<ci>Temp_Scale</ci>
+				<ci>KToverH</ci>
+				<apply>
+					<exp />
+					<apply>
+						<plus />
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole">62123.0784380481</cn>
+							</apply>
+							<ci>RTNa</ci>
+						</apply>
+						<apply>
+							<divide />
+							<cn units="joule_per_mole_kelvin">39.295</cn>
+							<ci>Rgas</ci>
+						</apply>
+						<apply>
+							<divide />
+							<apply>
+								<times />
+								<cn units="dimensionless">0.288816042743232</cn>
+								<ci>V</ci>
+							</apply>
+							<ci>RTNaF</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>Of</ci>
+			<apply>
+				<times />
+				<ci>Temp_Scale</ci>
+				<ci>KToverH</ci>
+				<apply>
+					<exp />
+					<apply>
+						<plus />
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole">97657.8497137015</cn>
+							</apply>
+							<ci>RTNa</ci>
+						</apply>
+						<apply>
+							<divide />
+							<cn units="joule_per_mole_kelvin">1.51</cn>
+							<ci>Rgas</ci>
+						</apply>
+						<apply>
+							<divide />
+							<apply>
+								<times />
+								<cn units="dimensionless">0.0684861993100685</cn>
+								<ci>V</ci>
+							</apply>
+							<ci>RTNaF</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>GammaGamma</ci>
+			<apply>
+				<times />
+				<ci>Temp_Scale</ci>
+				<ci>KToverH</ci>
+				<apply>
+					<exp />
+					<apply>
+						<plus />
+						<apply>
+							<divide />
+							<cn units="joule_per_mole">116431.142142348</cn>
+							<ci>RTNa</ci>
+						</apply>
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole_kelvin">578.317</cn>
+							</apply>
+							<ci>Rgas</ci>
+						</apply>
+						<apply>
+							<divide />
+							<apply>
+								<times />
+								<cn units="dimensionless">0.764126011745707</cn>
+								<ci>V</ci>
+							</apply>
+							<ci>RTNaF</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>DeltaDelta</ci>
+			<apply>
+				<times />
+				<ci>Temp_Scale</ci>
+				<ci>KToverH</ci>
+				<apply>
+					<exp />
+					<apply>
+						<plus />
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole">55700.6624658307</cn>
+							</apply>
+							<ci>RTNa</ci>
+						</apply>
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole_kelvin">130.639</cn>
+							</apply>
+							<ci>Rgas</ci>
+						</apply>
+						<apply>
+							<divide />
+							<apply>
+								<times />
+								<apply>
+									<minus />
+									<cn units="dimensionless">3.64981672927078</cn>
+								</apply>
+								<ci>V</ci>
+							</apply>
+							<ci>RTNaF</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>epsilon</ci>
+			<apply>
+				<times />
+				<ci>Temp_Scale</ci>
+				<ci>KToverH</ci>
+				<apply>
+					<exp />
+					<apply>
+						<plus />
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole">85800.3675578326</cn>
+							</apply>
+							<ci>RTNa</ci>
+						</apply>
+						<apply>
+							<divide />
+							<cn units="joule_per_mole_kelvin">70.078</cn>
+							<ci>Rgas</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>omega_na</ci>
+			<apply>
+				<times />
+				<ci>Temp_Scale</ci>
+				<ci>KToverH</ci>
+				<apply>
+					<exp />
+					<apply>
+						<plus />
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole">121955.166154864</cn>
+							</apply>
+							<ci>RTNa</ci>
+						</apply>
+						<apply>
+							<divide />
+							<cn units="joule_per_mole_kelvin">225.175</cn>
+							<ci>Rgas</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>rho</ci>
+			<apply>
+				<times />
+				<ci>Temp_Scale</ci>
+				<ci>KToverH</ci>
+				<apply>
+					<exp />
+					<apply>
+						<plus />
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole">147813.990005035</cn>
+							</apply>
+							<ci>RTNa</ci>
+						</apply>
+						<apply>
+							<divide />
+							<cn units="joule_per_mole_kelvin">338.915</cn>
+							<ci>Rgas</ci>
+						</apply>
+						<apply>
+							<divide />
+							<apply>
+								<times />
+								<cn units="dimensionless">2.1360043702126</cn>
+								<ci>V</ci>
+							</apply>
+							<ci>RTNaF</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>mu</ci>
+			<apply>
+				<times />
+				<ci>Temp_Scale</ci>
+				<ci>KToverH</ci>
+				<apply>
+					<exp />
+					<apply>
+						<plus />
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole">121322.143275242</cn>
+							</apply>
+							<ci>RTNa</ci>
+						</apply>
+						<apply>
+							<divide />
+							<cn units="joule_per_mole_kelvin">193.265</cn>
+							<ci>Rgas</ci>
+						</apply>
+						<apply>
+							<divide />
+							<apply>
+								<times />
+								<apply>
+									<minus />
+									<cn units="dimensionless">1.74290267020903</cn>
+								</apply>
+								<ci>V</ci>
+							</apply>
+							<ci>RTNaF</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>Cn</ci>
+			<apply>
+				<times />
+				<ci>Temp_Scale</ci>
+				<ci>KToverH</ci>
+				<apply>
+					<exp />
+					<apply>
+						<plus />
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole">287913.446530953</cn>
+							</apply>
+							<ci>RTNa</ci>
+						</apply>
+						<apply>
+							<divide />
+							<cn units="joule_per_mole_kelvin">786.217</cn>
+							<ci>Rgas</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>Cf</ci>
+			<apply>
+				<times />
+				<ci>Temp_Scale</ci>
+				<ci>KToverH</ci>
+				<apply>
+					<exp />
+					<apply>
+						<plus />
+						<apply>
+							<divide />
+							<apply>
+								<minus />
+								<cn units="joule_per_mole">59565.2236284584</cn>
+							</apply>
+							<ci>RTNa</ci>
+						</apply>
+						<apply>
+							<divide />
+							<cn units="joule_per_mole_kelvin">0.00711</cn>
+							<ci>Rgas</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>parameter_a</ci>
+			<cn units="dimensionless">1.40042625477401</cn>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k12</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">4</cn>
+				<ci>alpha1</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k23</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">3</cn>
+				<ci>alpha1</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k34</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">2</cn>
+				<ci>alpha1</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k45</ci>
+			<ci>alpha1</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k56</ci>
+			<ci>gamma1</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k67</ci>
+			<ci>epsilon</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k89</ci>
+			<apply>
+				<times />
+				<ci>k12</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k910</ci>
+			<apply>
+				<times />
+				<ci>k23</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k1011</ci>
+			<apply>
+				<times />
+				<ci>k34</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k1112</ci>
+			<apply>
+				<times />
+				<ci>k45</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k1213</ci>
+			<ci>GammaGamma</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k57</ci>
+			<ci>rho</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k21</ci>
+			<ci>beta1</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k32</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">2</cn>
+				<ci>beta1</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k43</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">3</cn>
+				<ci>beta1</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k54</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">4</cn>
+				<ci>beta1</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k65</ci>
+			<ci>Delta1</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k76</ci>
+			<ci>omega_na</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k98</ci>
+			<apply>
+				<divide />
+				<ci>k21</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k109</ci>
+			<apply>
+				<divide />
+				<ci>k32</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k1110</ci>
+			<apply>
+				<divide />
+				<ci>k43</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k1211</ci>
+			<apply>
+				<divide />
+				<ci>k54</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k1312</ci>
+			<ci>DeltaDelta</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k75</ci>
+			<ci>mu</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k81</ci>
+			<ci>Cf</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k92</ci>
+			<apply>
+				<divide />
+				<ci>k81</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k103</ci>
+			<apply>
+				<divide />
+				<ci>k92</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k114</ci>
+			<apply>
+				<divide />
+				<ci>k103</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k125</ci>
+			<apply>
+				<divide />
+				<ci>k114</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k136</ci>
+			<ci>Of</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k18</ci>
+			<ci>Cn</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k29</ci>
+			<apply>
+				<times />
+				<ci>k18</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k310</ci>
+			<apply>
+				<times />
+				<ci>k29</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k411</ci>
+			<apply>
+				<times />
+				<ci>k310</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k512</ci>
+			<apply>
+				<times />
+				<ci>k411</ci>
+				<ci>parameter_a</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>k613</ci>
+			<ci>On</ci>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na1</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<apply>
+						<minus />
+						<apply>
+							<plus />
+							<ci>k18</ci>
+							<ci>k12</ci>
+						</apply>
+					</apply>
+					<ci>na1</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>k21</ci>
+					<ci>na2</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>k81</ci>
+					<ci>na8</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na2</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<minus />
+					<apply>
+						<times />
+						<ci>k12</ci>
+						<ci>na1</ci>
+					</apply>
+					<apply>
+						<times />
+						<apply>
+							<plus />
+							<ci>k21</ci>
+							<ci>k23</ci>
+							<ci>k29</ci>
+						</apply>
+						<ci>na2</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>k32</ci>
+					<ci>na3</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>k92</ci>
+					<ci>na9</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na3</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<minus />
+					<apply>
+						<times />
+						<ci>k23</ci>
+						<ci>na2</ci>
+					</apply>
+					<apply>
+						<times />
+						<apply>
+							<plus />
+							<ci>k32</ci>
+							<ci>k34</ci>
+							<ci>k310</ci>
+						</apply>
+						<ci>na3</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>k43</ci>
+					<ci>na4</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>k103</ci>
+					<ci>na10</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na4</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<minus />
+					<apply>
+						<times />
+						<ci>k34</ci>
+						<ci>na3</ci>
+					</apply>
+					<apply>
+						<times />
+						<apply>
+							<plus />
+							<ci>k43</ci>
+							<ci>k45</ci>
+							<ci>k411</ci>
+						</apply>
+						<ci>na4</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>k54</ci>
+					<ci>na5</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>k114</ci>
+					<ci>na11</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na5</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<minus />
+					<apply>
+						<times />
+						<ci>k45</ci>
+						<ci>na4</ci>
+					</apply>
+					<apply>
+						<times />
+						<apply>
+							<plus />
+							<ci>k54</ci>
+							<ci>k56</ci>
+							<ci>k57</ci>
+							<ci>k512</ci>
+						</apply>
+						<ci>na5</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>k65</ci>
+					<ci>na6</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>k75</ci>
+					<ci>na7</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>k125</ci>
+					<ci>na12</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na6</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<minus />
+					<apply>
+						<times />
+						<ci>k56</ci>
+						<ci>na5</ci>
+					</apply>
+					<apply>
+						<times />
+						<apply>
+							<plus />
+							<ci>k65</ci>
+							<ci>k67</ci>
+							<ci>k613</ci>
+						</apply>
+						<ci>na6</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>k76</ci>
+					<ci>na7</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>k136</ci>
+					<ci>na13</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na7</ci>
+			</apply>
+			<apply>
+				<minus />
+				<apply>
+					<plus />
+					<apply>
+						<times />
+						<ci>k57</ci>
+						<ci>na5</ci>
+					</apply>
+					<apply>
+						<times />
+						<ci>k67</ci>
+						<ci>na6</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<apply>
+						<plus />
+						<ci>k75</ci>
+						<ci>k76</ci>
+					</apply>
+					<ci>na7</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na8</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<minus />
+					<apply>
+						<times />
+						<ci>k18</ci>
+						<ci>na1</ci>
+					</apply>
+					<apply>
+						<times />
+						<apply>
+							<plus />
+							<ci>k81</ci>
+							<ci>k89</ci>
+						</apply>
+						<ci>na8</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>k98</ci>
+					<ci>na9</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na9</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<minus />
+					<apply>
+						<plus />
+						<apply>
+							<times />
+							<ci>k29</ci>
+							<ci>na2</ci>
+						</apply>
+						<apply>
+							<times />
+							<ci>k89</ci>
+							<ci>na8</ci>
+						</apply>
+					</apply>
+					<apply>
+						<times />
+						<apply>
+							<plus />
+							<ci>k98</ci>
+							<ci>k92</ci>
+							<ci>k910</ci>
+						</apply>
+						<ci>na9</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>k109</ci>
+					<ci>na10</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na10</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<minus />
+					<apply>
+						<plus />
+						<apply>
+							<times />
+							<ci>k310</ci>
+							<ci>na3</ci>
+						</apply>
+						<apply>
+							<times />
+							<ci>k910</ci>
+							<ci>na9</ci>
+						</apply>
+					</apply>
+					<apply>
+						<times />
+						<apply>
+							<plus />
+							<ci>k1011</ci>
+							<ci>k103</ci>
+							<ci>k109</ci>
+						</apply>
+						<ci>na10</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>k1110</ci>
+					<ci>na11</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na11</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<minus />
+					<apply>
+						<plus />
+						<apply>
+							<times />
+							<ci>k411</ci>
+							<ci>na4</ci>
+						</apply>
+						<apply>
+							<times />
+							<ci>k1011</ci>
+							<ci>na10</ci>
+						</apply>
+					</apply>
+					<apply>
+						<times />
+						<apply>
+							<plus />
+							<ci>k1110</ci>
+							<ci>k114</ci>
+							<ci>k1112</ci>
+						</apply>
+						<ci>na11</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>k1211</ci>
+					<ci>na12</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na12</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<minus />
+					<apply>
+						<plus />
+						<apply>
+							<times />
+							<ci>k512</ci>
+							<ci>na5</ci>
+						</apply>
+						<apply>
+							<times />
+							<ci>k1112</ci>
+							<ci>na11</ci>
+						</apply>
+					</apply>
+					<apply>
+						<times />
+						<apply>
+							<plus />
+							<ci>k1211</ci>
+							<ci>k125</ci>
+							<ci>k1213</ci>
+						</apply>
+						<ci>na12</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>k1312</ci>
+					<ci>na13</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>na13</ci>
+			</apply>
+			<apply>
+				<minus />
+				<apply>
+					<plus />
+					<apply>
+						<times />
+						<ci>k613</ci>
+						<ci>na6</ci>
+					</apply>
+					<apply>
+						<times />
+						<ci>k1213</ci>
+						<ci>na12</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<apply>
+						<plus />
+						<ci>k1312</ci>
+						<ci>k136</ci>
+					</apply>
+					<ci>na13</ci>
+				</apply>
+			</apply>
+		</apply>
+	</math>
+</component>
+</model>

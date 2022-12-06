@@ -1,0 +1,2339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+<component name="INa">
+	<math>
+		<apply id="">
+			<eq />
+			<ci>FoverRT</ci>
+			<apply>
+				<divide />
+				<cn>1</cn>
+				<ci>RToverF</ci>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component name="Ions_n_reversal_potentials" />
+<component name="intracellular_currents" />
+<component name="transmembrane_currents" />
+<component name="cell" />
+<component name="IKs">
+	<variable name="C0ks_C1ks" units="per_ms" />
+	<variable name="C1ks_O1ks" units="per_ms" />
+	<variable name="O1ks_O2ks" units="per_ms" />
+	<variable name="O1ks_C1ks" units="per_ms" />
+	<variable name="O2ks_O1ks" units="per_ms" />
+	<variable name="C1ks_C0ks" units="per_ms" />
+	<variable initial_value="0.9645606295" name="C0ks" public_interface="out" units="dimensionless" />
+	<variable initial_value="0.03542613568" name="C1ks" public_interface="out" units="dimensionless" />
+	<variable initial_value="2.491710696e-7" name="O1ks" public_interface="out" units="dimensionless" />
+	<variable initial_value="1.298547822e-5" name="O2ks" public_interface="out" units="dimensionless" />
+	<variable name="V" public_interface="in" units="mV" />
+	<variable name="time" public_interface="in" units="ms" />
+	<math>
+		<apply>
+			<eq />
+			<ci>C0ks_C1ks</ci>
+			<cn units="per_ms">0.00795600798004</cn>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C1ks_O1ks</ci>
+			<cn units="per_ms">0.03966720676071</cn>
+		</apply>
+		<apply>
+			<eq />
+			<ci>O1ks_O2ks</ci>
+			<apply>
+				<times />
+				<cn units="per_ms">0.00767254363063</cn>
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<cn units="per_mV">0.08662945914655</cn>
+						<ci>V</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>O1ks_C1ks</ci>
+			<apply>
+				<times />
+				<cn units="per_ms">0.00700806628929</cn>
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<apply>
+							<minus />
+							<cn units="per_mV">0.14999754700285</cn>
+						</apply>
+						<ci>V</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>O2ks_O1ks</ci>
+			<apply>
+				<times />
+				<cn units="per_ms">0.00379737998368</cn>
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<apply>
+							<minus />
+							<cn units="per_mV">0.01425668126881</cn>
+						</apply>
+						<ci>V</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C1ks_C0ks</ci>
+			<apply>
+				<times />
+				<cn units="per_ms">0.2162557589585</cn>
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<apply>
+							<minus />
+							<cn units="per_mV">0.00001889123021</cn>
+						</apply>
+						<ci>V</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>C0ks</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<apply>
+						<minus />
+						<ci>C0ks_C1ks</ci>
+					</apply>
+					<ci>C0ks</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>C1ks_C0ks</ci>
+					<ci>C1ks</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>C1ks</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<minus />
+					<apply>
+						<times />
+						<ci>C0ks_C1ks</ci>
+						<ci>C0ks</ci>
+					</apply>
+					<apply>
+						<times />
+						<apply>
+							<plus />
+							<ci>C1ks_C0ks</ci>
+							<ci>C1ks_O1ks</ci>
+						</apply>
+						<ci>C1ks</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>O1ks_C1ks</ci>
+					<ci>O1ks</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>O1ks</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<minus />
+					<apply>
+						<times />
+						<ci>C1ks_O1ks</ci>
+						<ci>C1ks</ci>
+					</apply>
+					<apply>
+						<times />
+						<apply>
+							<plus />
+							<ci>O1ks_C1ks</ci>
+							<ci>O1ks_O2ks</ci>
+						</apply>
+						<ci>O1ks</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>O2ks_O1ks</ci>
+					<ci>O2ks</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>O2ks</ci>
+			</apply>
+			<apply>
+				<minus />
+				<apply>
+					<times />
+					<ci>O1ks_O2ks</ci>
+					<ci>O1ks</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>O2ks_O1ks</ci>
+					<ci>O2ks</ci>
+				</apply>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component name="IKr">
+	<variable initial_value="5.320000001" name="T_Const_HERG" units="dimensionless" />
+	<variable initial_value="0.017147641733086" name="A0_HERG" units="per_ms" />
+	<variable initial_value="0.03304608038835" name="B0_HERG" units="per_mV" />
+	<variable initial_value="0.03969328381141" name="A1_HERG" units="per_ms" />
+	<variable initial_value="-0.0430605416398" name="B1_HERG" units="per_mV" />
+	<variable initial_value="0.02057448605977" name="A2_HERG" units="per_ms" />
+	<variable initial_value="0.02617412715118" name="B2_HERG" units="per_mV" />
+	<variable initial_value="0.00134366604423" name="A3_HERG" units="per_ms" />
+	<variable initial_value="-0.02691385498399" name="B3_HERG" units="per_mV" />
+	<variable initial_value="0.10666316491288" name="A4_HERG" units="per_ms" />
+	<variable initial_value="0.00568908859717" name="B4_HERG" units="per_mV" />
+	<variable initial_value="0.00646393910049" name="A5_HERG" units="per_ms" />
+	<variable initial_value="-0.04536642959543" name="B5_HERG" units="per_mV" />
+	<variable initial_value="0.00008039374403" name="A6_HERG" units="per_ms" />
+	<variable initial_value="0.00000069808924" name="B6_HERG" units="per_mV" />
+	<variable name="C2H_to_C3H" units="per_ms" />
+	<variable name="C3H_to_C2H" units="per_ms" />
+	<variable name="C1H_to_C2H" units="per_ms" />
+	<variable name="C2H_to_C1H" units="per_ms" />
+	<variable name="C3H_to_OH" units="per_ms" />
+	<variable name="OH_to_C3H" units="per_ms" />
+	<variable name="OH_to_IH" units="per_ms" />
+	<variable name="IH_to_OH" units="per_ms" />
+	<variable name="C3H_to_IH" units="per_ms" />
+	<variable name="IH_to_C3H" units="per_ms" />
+	<variable name="V" public_interface="in" units="mV" />
+	<variable initial_value="0.996697338" name="C1Herg" public_interface="out" units="dimensionless" />
+	<variable name="a1_C2" units="per_ms" />
+	<variable name="a2_C2" units="per_ms" />
+	<variable initial_value="4.340879648e-4" name="C2Herg" public_interface="out" units="dimensionless" />
+	<variable name="a1_C3" units="per_ms" />
+	<variable name="a2_C3" units="per_ms" />
+	<variable initial_value="7.634099755000001e-5" name="C3Herg" public_interface="out" units="dimensionless" />
+	<variable name="a1_O" units="per_ms" />
+	<variable name="a2_O" units="per_ms" />
+	<variable initial_value="9.511789113e-6" name="OHerg" public_interface="out" units="dimensionless" />
+	<variable name="a1_I" units="per_ms" />
+	<variable name="a2_I" units="per_ms" />
+	<variable initial_value="1.533347007e-6" name="IHerg" public_interface="out" units="dimensionless" />
+	<variable name="time" public_interface="in" units="ms" />
+	<math>
+		<apply>
+			<eq />
+			<ci>C2H_to_C3H</ci>
+			<apply>
+				<times />
+				<ci>T_Const_HERG</ci>
+				<cn units="per_ms">0.02608362043337</cn>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C3H_to_C2H</ci>
+			<apply>
+				<times />
+				<ci>T_Const_HERG</ci>
+				<cn units="per_ms">0.14832978132145</cn>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C1H_to_C2H</ci>
+			<apply>
+				<times />
+				<ci>T_Const_HERG</ci>
+				<ci>A0_HERG</ci>
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<ci>B0_HERG</ci>
+						<ci>V</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C2H_to_C1H</ci>
+			<apply>
+				<times />
+				<ci>T_Const_HERG</ci>
+				<ci>A1_HERG</ci>
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<ci>B1_HERG</ci>
+						<ci>V</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C3H_to_OH</ci>
+			<apply>
+				<times />
+				<ci>T_Const_HERG</ci>
+				<ci>A2_HERG</ci>
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<ci>B2_HERG</ci>
+						<ci>V</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>OH_to_C3H</ci>
+			<apply>
+				<times />
+				<ci>T_Const_HERG</ci>
+				<ci>A3_HERG</ci>
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<ci>B3_HERG</ci>
+						<ci>V</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>OH_to_IH</ci>
+			<apply>
+				<times />
+				<ci>T_Const_HERG</ci>
+				<ci>A4_HERG</ci>
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<ci>B4_HERG</ci>
+						<ci>V</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>IH_to_OH</ci>
+			<apply>
+				<times />
+				<ci>T_Const_HERG</ci>
+				<ci>A5_HERG</ci>
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<ci>B5_HERG</ci>
+						<ci>V</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C3H_to_IH</ci>
+			<apply>
+				<times />
+				<ci>T_Const_HERG</ci>
+				<ci>A6_HERG</ci>
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<ci>B6_HERG</ci>
+						<ci>V</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>IH_to_C3H</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<ci>OH_to_C3H</ci>
+					<ci>IH_to_OH</ci>
+					<ci>C3H_to_IH</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>C3H_to_OH</ci>
+					<ci>OH_to_IH</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>C1Herg</ci>
+			</apply>
+			<apply>
+				<minus />
+				<apply>
+					<times />
+					<ci>C2H_to_C1H</ci>
+					<ci>C2Herg</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>C1H_to_C2H</ci>
+					<ci>C1Herg</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_C2</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>C1H_to_C2H</ci>
+					<ci>C1Herg</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>C3H_to_C2H</ci>
+					<ci>C3Herg</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_C2</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>C2H_to_C1H</ci>
+					<ci>C2H_to_C3H</ci>
+				</apply>
+				<ci>C2Herg</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>C2Herg</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a1_C2</ci>
+				<ci>a2_C2</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_C3</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>C2H_to_C3H</ci>
+					<ci>C2Herg</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>OH_to_C3H</ci>
+					<ci>OHerg</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>IH_to_C3H</ci>
+					<ci>IHerg</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_C3</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>C3H_to_IH</ci>
+					<ci>C3H_to_OH</ci>
+					<ci>C3H_to_C2H</ci>
+				</apply>
+				<ci>C3Herg</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>C3Herg</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a1_C3</ci>
+				<ci>a2_C3</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_O</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>C3H_to_OH</ci>
+					<ci>C3Herg</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>IH_to_OH</ci>
+					<ci>IHerg</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_O</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>OH_to_C3H</ci>
+					<ci>OH_to_IH</ci>
+				</apply>
+				<ci>OHerg</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>OHerg</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a1_O</ci>
+				<ci>a2_O</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_I</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>C3H_to_IH</ci>
+					<ci>C3Herg</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>OH_to_IH</ci>
+					<ci>OHerg</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_I</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>IH_to_C3H</ci>
+					<ci>IH_to_OH</ci>
+				</apply>
+				<ci>IHerg</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>IHerg</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a1_I</ci>
+				<ci>a2_I</ci>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component name="COMPUTE_ICa_ICaK">
+	<variable name="Ko" public_interface="in" units="mM" />
+	<variable name="Ki" public_interface="in" units="mM" />
+	<variable name="RT_over_F" public_interface="in" units="mV" />
+	<variable name="Cai" public_interface="in" units="mM" />
+	<variable name="Cao" public_interface="in" units="mM" />
+	<variable name="V" public_interface="in" units="mV" />
+	<variable name="yCa" public_interface="in" units="dimensionless" />
+	<variable name="Open" public_interface="in" units="dimensionless" />
+	<variable name="Faraday" public_interface="in" units="coulomb_per_millimole" />
+	<variable name="PKprime" units="litre_per_farad_second" />
+	<variable name="VF_over_RT" units="dimensionless" />
+	<variable name="VFsq_over_RT" units="coulomb_per_millimole" />
+	<variable name="a1_Ca" units="mM" />
+	<variable name="a2_Ca" units="dimensionless" />
+	<variable name="a1_K" units="mM" />
+	<variable name="a2_K" units="dimensionless" />
+	<variable name="ICa" public_interface="out" units="uA_per_uF" />
+	<variable name="ICaK" public_interface="out" units="uA_per_uF" />
+	<variable name="ICamax" units="uA_per_uF" />
+	<variable name="Icabar" units="uA_per_uF" />
+	<variable name="PCa" units="litre_per_farad_second" />
+	<variable name="PK" units="litre_per_farad_second" />
+	<variable initial_value="-0.265" name="ICahalf" units="uA_per_uF" />
+	<variable initial_value="7" name="Pscale" units="dimensionless" />
+	<math>
+		<apply>
+			<eq />
+			<ci>PK</ci>
+			<apply>
+				<times />
+				<ci>Pscale</ci>
+				<cn units="litre_per_farad_second">4.574e-7</cn>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>PCa</ci>
+			<apply>
+				<times />
+				<ci>Pscale</ci>
+				<cn units="litre_per_farad_second">2.469e-4</cn>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>VF_over_RT</ci>
+			<apply>
+				<divide />
+				<ci>V</ci>
+				<ci>RT_over_F</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>VFsq_over_RT</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">1000</cn>
+				<ci>Faraday</ci>
+				<ci>VF_over_RT</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_Ca</ci>
+			<apply>
+				<minus />
+				<apply>
+					<times />
+					<cn units="mM">1e-3</cn>
+					<apply>
+						<exp />
+						<apply>
+							<times />
+							<cn units="dimensionless">2</cn>
+							<ci>VF_over_RT</ci>
+						</apply>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>Cao</ci>
+					<cn units="dimensionless">0.341</cn>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_Ca</ci>
+			<apply>
+				<minus />
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<cn units="dimensionless">2</cn>
+						<ci>VF_over_RT</ci>
+					</apply>
+				</apply>
+				<cn units="dimensionless">1</cn>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>ICamax</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<ci>PCa</ci>
+					<cn units="dimensionless">4</cn>
+					<ci>VFsq_over_RT</ci>
+					<ci>a1_Ca</ci>
+				</apply>
+				<ci>a2_Ca</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>ICa</ci>
+			<apply>
+				<times />
+				<ci>ICamax</ci>
+				<ci>yCa</ci>
+				<ci>Open</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>Icabar</ci>
+			<piecewise>
+				<piece>
+					<cn units="uA_per_uF">0</cn>
+					<apply>
+						<geq />
+						<ci>ICamax</ci>
+						<cn units="uA_per_uF">0</cn>
+					</apply>
+				</piece>
+				<otherwise>
+					<ci>ICamax</ci>
+				</otherwise>
+			</piecewise>
+		</apply>
+		<apply>
+			<eq />
+			<ci>PKprime</ci>
+			<apply>
+				<divide />
+				<ci>PK</ci>
+				<apply>
+					<plus />
+					<cn units="dimensionless">1</cn>
+					<apply>
+						<divide />
+						<ci>Icabar</ci>
+						<ci>ICahalf</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_K</ci>
+			<apply>
+				<minus />
+				<apply>
+					<times />
+					<ci>Ki</ci>
+					<apply>
+						<exp />
+						<ci>VF_over_RT</ci>
+					</apply>
+				</apply>
+				<ci>Ko</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_K</ci>
+			<apply>
+				<minus />
+				<apply>
+					<exp />
+					<ci>VF_over_RT</ci>
+				</apply>
+				<cn units="dimensionless">1</cn>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>ICaK</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<ci>PKprime</ci>
+					<ci>Open</ci>
+					<ci>yCa</ci>
+					<ci>VFsq_over_RT</ci>
+					<ci>a1_K</ci>
+				</apply>
+				<ci>a2_K</ci>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component name="COMPUTE_INaK_INaCa_ICab_IpCa">
+	<variable name="V" public_interface="in" units="mV" />
+	<variable name="ECa" public_interface="in" units="mV" />
+	<variable name="RT_over_F" public_interface="in" units="mV" />
+	<variable name="Nai" public_interface="in" units="mM" />
+	<variable name="Nao" public_interface="in" units="mM" />
+	<variable name="Ko" public_interface="in" units="mM" />
+	<variable name="Cai" public_interface="in" units="mM" />
+	<variable name="Cao" public_interface="in" units="mM" />
+	<variable initial_value="0.44" name="kNaCa" units="uA_per_uF" />
+	<variable initial_value="87.5" name="KmNa" units="mM" />
+	<variable initial_value="1.38" name="KmCa" units="mM" />
+	<variable initial_value="0.2" name="ksat" units="dimensionless" />
+	<variable initial_value="0.35" name="eta" units="dimensionless" />
+	<variable initial_value="2.387" name="INaKmax" units="uA_per_uF" />
+	<variable initial_value="20" name="KmNai" units="mM" />
+	<variable initial_value="1.5" name="KmKo" units="mM" />
+	<variable initial_value="0.05" name="IpCamax" units="uA_per_uF" />
+	<variable initial_value="0.0005" name="KmpCa" units="mM" />
+	<variable initial_value="7.684e-5" name="GCab" units="mS_per_uF" />
+	<variable name="VF_over_RT" units="dimensionless" />
+	<variable name="sigma" units="dimensionless" />
+	<variable name="a1_Na" units="dimensionless" />
+	<variable name="a2_Na" units="dimensionless" />
+	<variable name="fNaK" units="dimensionless" />
+	<variable name="a1_K" units="dimensionless" />
+	<variable name="a2_K" units="dimensionless" />
+	<variable name="INaK" public_interface="out" units="uA_per_uF" />
+	<variable name="a1_ncx" units="mM4" />
+	<variable name="a2_ncx" units="mM4" />
+	<variable name="a3_ncx" units="dimensionless" />
+	<variable name="a4_ncx" units="mM" />
+	<variable name="a5_ncx" units="mM3" />
+	<variable name="INaCa" public_interface="out" units="uA_per_uF" />
+	<variable name="ICab" public_interface="out" units="uA_per_uF" />
+	<variable name="IpCa" public_interface="out" units="uA_per_uF" />
+	<math>
+		<apply>
+			<eq />
+			<ci>ICab</ci>
+			<apply>
+				<times />
+				<ci>GCab</ci>
+				<apply>
+					<minus />
+					<ci>V</ci>
+					<ci>ECa</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>IpCa</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<ci>IpCamax</ci>
+					<ci>Cai</ci>
+				</apply>
+				<apply>
+					<plus />
+					<ci>KmpCa</ci>
+					<ci>Cai</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>VF_over_RT</ci>
+			<apply>
+				<divide />
+				<ci>V</ci>
+				<ci>RT_over_F</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>sigma</ci>
+			<apply>
+				<divide />
+				<apply>
+					<minus />
+					<apply>
+						<exp />
+						<apply>
+							<divide />
+							<ci>Nao</ci>
+							<cn units="mM">67.3</cn>
+						</apply>
+					</apply>
+					<cn units="dimensionless">1</cn>
+				</apply>
+				<cn units="dimensionless">7</cn>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_Na</ci>
+			<apply>
+				<plus />
+				<cn units="dimensionless">1</cn>
+				<apply>
+					<times />
+					<cn units="dimensionless">0.1245</cn>
+					<apply>
+						<exp />
+						<apply>
+							<times />
+							<apply>
+								<minus />
+								<cn units="dimensionless">0.1</cn>
+							</apply>
+							<ci>VF_over_RT</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_Na</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">0.0365</cn>
+				<ci>sigma</ci>
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<apply>
+							<minus />
+							<cn units="dimensionless">1.33</cn>
+						</apply>
+						<ci>VF_over_RT</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>fNaK</ci>
+			<apply>
+				<divide />
+				<cn units="dimensionless">1</cn>
+				<apply>
+					<plus />
+					<ci>a1_Na</ci>
+					<ci>a2_Na</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_K</ci>
+			<apply>
+				<divide />
+				<ci>Ko</ci>
+				<apply>
+					<plus />
+					<ci>Ko</ci>
+					<ci>KmKo</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_K</ci>
+			<apply>
+				<plus />
+				<cn units="dimensionless">1</cn>
+				<apply>
+					<power />
+					<apply>
+						<divide />
+						<ci>KmNai</ci>
+						<ci>Nai</ci>
+					</apply>
+					<cn units="dimensionless">1.5</cn>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>INaK</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<ci>INaKmax</ci>
+					<ci>fNaK</ci>
+					<ci>a1_K</ci>
+				</apply>
+				<ci>a2_K</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_ncx</ci>
+			<apply>
+				<times />
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<ci>eta</ci>
+						<ci>VF_over_RT</ci>
+					</apply>
+				</apply>
+				<apply>
+					<power />
+					<ci>Nai</ci>
+					<cn units="dimensionless">3</cn>
+				</apply>
+				<ci>Cao</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_ncx</ci>
+			<apply>
+				<times />
+				<apply>
+					<exp />
+					<apply>
+						<times />
+						<apply>
+							<minus />
+							<ci>eta</ci>
+							<cn units="dimensionless">1</cn>
+						</apply>
+						<ci>VF_over_RT</ci>
+					</apply>
+				</apply>
+				<apply>
+					<power />
+					<ci>Nao</ci>
+					<cn units="dimensionless">3</cn>
+				</apply>
+				<ci>Cai</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a3_ncx</ci>
+			<apply>
+				<plus />
+				<cn units="dimensionless">1</cn>
+				<apply>
+					<times />
+					<ci>ksat</ci>
+					<apply>
+						<exp />
+						<apply>
+							<times />
+							<apply>
+								<minus />
+								<ci>eta</ci>
+								<cn units="dimensionless">1</cn>
+							</apply>
+							<ci>VF_over_RT</ci>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a4_ncx</ci>
+			<apply>
+				<plus />
+				<ci>KmCa</ci>
+				<ci>Cao</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a5_ncx</ci>
+			<apply>
+				<divide />
+				<apply>
+					<plus />
+					<apply>
+						<power />
+						<ci>KmNa</ci>
+						<cn units="dimensionless">3</cn>
+					</apply>
+					<apply>
+						<power />
+						<ci>Nao</ci>
+						<cn units="dimensionless">3</cn>
+					</apply>
+				</apply>
+				<cn units="dimensionless">5000</cn>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>INaCa</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<ci>kNaCa</ci>
+					<apply>
+						<minus />
+						<ci>a1_ncx</ci>
+						<ci>a2_ncx</ci>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>a4_ncx</ci>
+					<ci>a3_ncx</ci>
+					<ci>a5_ncx</ci>
+				</apply>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component name="COMPUTE_INa_IKr_IKs_Ito1_IK1_INab_IKp">
+	<variable initial_value="0.0186e0" name="GKr" units="mS_per_uF" />
+	<variable initial_value="0.0035e0" name="GKs" units="mS_per_uF" />
+	<variable initial_value="0.1253051261188079722568586886469e0" name="GK1" units="mS_per_uF" />
+	<variable initial_value="56.32e0" name="GNa" units="mS_per_uF" />
+	<variable initial_value="0.001e0" name="GNab" units="mS_per_uF" />
+	<variable initial_value="0.872" name="KvScale" units="dimensionless" />
+	<variable initial_value="0.889" name="Kv43Frac" units="dimensionless" />
+	<variable name="GKv43" units="mS_per_uF" />
+	<variable name="PKv14" units="litre_per_farad_second" />
+	<variable name="OKv14" public_interface="in" units="dimensionless" />
+	<variable name="na6" public_interface="in" units="dimensionless" />
+	<variable name="na7" public_interface="in" units="dimensionless" />
+	<variable name="V" public_interface="in" units="mV" />
+	<variable name="ENa" public_interface="in" units="mV" />
+	<variable name="Ko" public_interface="in" units="mM" />
+	<variable name="OHerg" public_interface="in" units="dimensionless" />
+	<variable name="O1ks" public_interface="in" units="dimensionless" />
+	<variable name="O2ks" public_interface="in" units="dimensionless" />
+	<variable name="OKv43" public_interface="in" units="dimensionless" />
+	<variable name="RT_over_F" public_interface="in" units="mV" />
+	<variable name="Faraday" public_interface="in" units="coulomb_per_millimole" />
+	<variable name="Ki" public_interface="in" units="mM" />
+	<variable name="EK" public_interface="in" units="mV" />
+	<variable name="fKo" units="dimensionless" />
+	<variable name="VF_over_RT" units="dimensionless" />
+	<variable name="VFsq_over_RT" units="coulomb_per_millimole" />
+	<variable name="a1_K" units="mM" />
+	<variable name="a2" units="dimensionless" />
+	<variable name="a1_Na" units="mM" />
+	<variable name="K1_inf" units="dimensionless" />
+	<variable id="COMPUTE_INa_IKr_IKs_Ito1_IK1_INab_IKp_IKr" name="IKr" public_interface="out" units="uA_per_uF" />
+	<variable name="IKs" public_interface="out" units="uA_per_uF" />
+	<variable name="IKv43" public_interface="out" units="uA_per_uF" />
+	<variable name="IKv14_K" public_interface="out" units="uA_per_uF" />
+	<variable name="Nai" public_interface="in" units="mM" />
+	<variable name="Nao" public_interface="in" units="mM" />
+	<variable name="IKv14_Na" public_interface="out" units="uA_per_uF" />
+	<variable name="IKv14" public_interface="out" units="uA_per_uF" />
+	<variable name="Ito1" public_interface="out" units="uA_per_uF" />
+	<variable id="COMPUTE_INa_IKr_IKs_Ito1_IK1_INab_IKp_IK1" name="IK1" public_interface="out" units="uA_per_uF" />
+	<variable name="INab" public_interface="out" units="uA_per_uF" />
+	<variable name="INa" public_interface="out" units="uA_per_uF" />
+	<math>
+		<apply>
+			<eq />
+			<ci>PKv14</ci>
+			<apply>
+				<times />
+				<apply>
+					<minus />
+					<cn units="dimensionless">1</cn>
+					<ci>Kv43Frac</ci>
+				</apply>
+				<ci>KvScale</ci>
+				<cn units="litre_per_farad_second">4.2986e-7</cn>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>GKv43</ci>
+			<apply>
+				<times />
+				<ci>Kv43Frac</ci>
+				<ci>KvScale</ci>
+				<cn units="mS_per_uF">0.1</cn>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>INa</ci>
+			<apply>
+				<times />
+				<ci>GNa</ci>
+				<apply>
+					<plus />
+					<ci>na6</ci>
+					<ci>na7</ci>
+				</apply>
+				<apply>
+					<minus />
+					<ci>V</ci>
+					<ci>ENa</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>fKo</ci>
+			<apply>
+				<root />
+				<apply>
+					<divide />
+					<ci>Ko</ci>
+					<cn units="mM">4</cn>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>IKr</ci>
+			<apply>
+				<times />
+				<ci>GKr</ci>
+				<ci>fKo</ci>
+				<ci>OHerg</ci>
+				<apply>
+					<minus />
+					<ci>V</ci>
+					<ci>EK</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>IKs</ci>
+			<apply>
+				<times />
+				<ci>GKs</ci>
+				<apply>
+					<plus />
+					<ci>O1ks</ci>
+					<ci>O2ks</ci>
+				</apply>
+				<apply>
+					<minus />
+					<ci>V</ci>
+					<ci>EK</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>IKv43</ci>
+			<apply>
+				<times />
+				<ci>GKv43</ci>
+				<ci>OKv43</ci>
+				<apply>
+					<minus />
+					<ci>V</ci>
+					<ci>EK</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>VF_over_RT</ci>
+			<apply>
+				<divide />
+				<ci>V</ci>
+				<ci>RT_over_F</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>VFsq_over_RT</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">1000</cn>
+				<ci>Faraday</ci>
+				<ci>VF_over_RT</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_K</ci>
+			<apply>
+				<minus />
+				<apply>
+					<times />
+					<ci>Ki</ci>
+					<apply>
+						<exp />
+						<ci>VF_over_RT</ci>
+					</apply>
+				</apply>
+				<ci>Ko</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2</ci>
+			<apply>
+				<minus />
+				<apply>
+					<exp />
+					<ci>VF_over_RT</ci>
+				</apply>
+				<cn units="dimensionless">1</cn>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>IKv14_K</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<ci>PKv14</ci>
+					<ci>OKv14</ci>
+					<ci>VFsq_over_RT</ci>
+					<ci>a1_K</ci>
+				</apply>
+				<ci>a2</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_Na</ci>
+			<apply>
+				<minus />
+				<apply>
+					<times />
+					<ci>Nai</ci>
+					<apply>
+						<exp />
+						<ci>VF_over_RT</ci>
+					</apply>
+				</apply>
+				<ci>Nao</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>IKv14_Na</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<cn units="dimensionless">0.02</cn>
+					<ci>PKv14</ci>
+					<ci>OKv14</ci>
+					<ci>VFsq_over_RT</ci>
+					<ci>a1_Na</ci>
+				</apply>
+				<ci>a2</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>IKv14</ci>
+			<apply>
+				<plus />
+				<ci>IKv14_K</ci>
+				<ci>IKv14_Na</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>Ito1</ci>
+			<apply>
+				<plus />
+				<ci>IKv43</ci>
+				<ci>IKv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>K1_inf</ci>
+			<apply>
+				<divide />
+				<cn units="dimensionless">1</cn>
+				<apply>
+					<plus />
+					<cn units="dimensionless">0.94</cn>
+					<apply>
+						<exp />
+						<apply>
+							<times />
+							<apply>
+								<divide />
+								<cn units="dimensionless">1.26</cn>
+								<ci>RT_over_F</ci>
+							</apply>
+							<apply>
+								<minus />
+								<ci>V</ci>
+								<ci>EK</ci>
+							</apply>
+						</apply>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>IK1</ci>
+			<apply>
+				<times />
+				<ci>GK1</ci>
+				<apply>
+					<root />
+					<apply>
+						<divide />
+						<ci>Ko</ci>
+						<cn units="mM">1</cn>
+					</apply>
+				</apply>
+				<ci>K1_inf</ci>
+				<apply>
+					<minus />
+					<ci>V</ci>
+					<ci>EK</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>INab</ci>
+			<apply>
+				<times />
+				<ci>GNab</ci>
+				<apply>
+					<minus />
+					<ci>V</ci>
+					<ci>ENa</ci>
+				</apply>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component name="COMPUTE_REVERSAL_POTENTIALS">
+	<variable name="ENa" public_interface="out" units="mV" />
+	<variable name="EK" public_interface="out" units="mV" />
+	<variable name="EKs" public_interface="out" units="mV" />
+	<variable name="ECa" public_interface="out" units="mV" />
+	<variable name="RT_over_F" public_interface="in" units="mV" />
+	<variable name="Nao" public_interface="in" units="mM" />
+	<variable name="Nai" public_interface="in" units="mM" />
+	<variable name="Ko" public_interface="in" units="mM" />
+	<variable name="Ki" public_interface="in" units="mM" />
+	<variable name="Cao" public_interface="in" units="mM" />
+	<variable name="Cai" public_interface="in" units="mM" />
+	<variable name="a1" units="mM" />
+	<variable name="a2" units="mM" />
+	<math>
+		<apply>
+			<eq />
+			<ci>ENa</ci>
+			<apply>
+				<times />
+				<ci>RT_over_F</ci>
+				<apply>
+					<ln />
+					<apply>
+						<divide />
+						<ci>Nao</ci>
+						<ci>Nai</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>EK</ci>
+			<apply>
+				<times />
+				<ci>RT_over_F</ci>
+				<apply>
+					<ln />
+					<apply>
+						<divide />
+						<ci>Ko</ci>
+						<ci>Ki</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1</ci>
+			<apply>
+				<plus />
+				<ci>Ko</ci>
+				<apply>
+					<times />
+					<cn units="dimensionless">0.01833</cn>
+					<ci>Nao</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2</ci>
+			<apply>
+				<plus />
+				<ci>Ki</ci>
+				<apply>
+					<times />
+					<cn units="dimensionless">0.01833</cn>
+					<ci>Nai</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>EKs</ci>
+			<apply>
+				<times />
+				<ci>RT_over_F</ci>
+				<apply>
+					<ln />
+					<apply>
+						<divide />
+						<ci>a1</ci>
+						<ci>a2</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>ECa</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">0.5</cn>
+				<ci>RT_over_F</ci>
+				<apply>
+					<ln />
+					<apply>
+						<divide />
+						<ci>Cao</ci>
+						<ci>Cai</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component>
+	<math>
+		<apply>
+			<apply>
+				<ci>alpha_act14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C1Kv14_to_C2Kv14</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">3</cn>
+				<ci>alpha_act14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C2Kv14_to_C3Kv14</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">2</cn>
+				<ci>alpha_act14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C3Kv14_to_OKv14</ci>
+			<ci>alpha_act14</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>CI0Kv14_to_CI1Kv14</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">4</cn>
+				<ci>b1Kv14</ci>
+				<ci>alpha_act14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>CI1Kv14_to_CI2Kv14</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<cn units="dimensionless">3</cn>
+					<ci>b2Kv14</ci>
+					<ci>alpha_act14</ci>
+				</apply>
+				<ci>b1Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>CI2Kv14_to_CI3Kv14</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<cn units="dimensionless">2</cn>
+					<ci>b3Kv14</ci>
+					<ci>alpha_act14</ci>
+				</apply>
+				<ci>b2Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>CI3Kv14_to_OIKv14</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<ci>b4Kv14</ci>
+					<ci>alpha_act14</ci>
+				</apply>
+				<ci>b3Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C1Kv14_to_C0Kv14</ci>
+			<ci>beta_act14</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C2Kv14_to_C1Kv14</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">2</cn>
+				<ci>beta_act14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C3Kv14_to_C2Kv14</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">3</cn>
+				<ci>beta_act14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>OKv14_to_C3Kv14</ci>
+			<apply>
+				<times />
+				<cn units="dimensionless">4</cn>
+				<ci>beta_act14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>CI1Kv14_to_CI0Kv14</ci>
+			<apply>
+				<divide />
+				<ci>beta_act14</ci>
+				<ci>f1Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>CI2Kv14_to_CI1Kv14</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<cn units="dimensionless">2</cn>
+					<ci>f1Kv14</ci>
+					<ci>beta_act14</ci>
+				</apply>
+				<ci>f2Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>CI3Kv14_to_CI2Kv14</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<cn units="dimensionless">3</cn>
+					<ci>f2Kv14</ci>
+					<ci>beta_act14</ci>
+				</apply>
+				<ci>f3Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>OIKv14_to_CI3Kv14</ci>
+			<apply>
+				<divide />
+				<apply>
+					<times />
+					<cn units="dimensionless">4</cn>
+					<ci>f3Kv14</ci>
+					<ci>beta_act14</ci>
+				</apply>
+				<ci>f4Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C0Kv14_to_CI0Kv14</ci>
+			<ci>beta_inact14</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C1Kv14_to_CI1Kv14</ci>
+			<apply>
+				<times />
+				<ci>f1Kv14</ci>
+				<ci>beta_inact14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C2Kv14_to_CI2Kv14</ci>
+			<apply>
+				<times />
+				<ci>f2Kv14</ci>
+				<ci>beta_inact14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>C3Kv14_to_CI3Kv14</ci>
+			<apply>
+				<times />
+				<ci>f3Kv14</ci>
+				<ci>beta_inact14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>OKv14_to_OIKv14</ci>
+			<apply>
+				<times />
+				<ci>f4Kv14</ci>
+				<ci>beta_inact14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>CI0Kv14_to_C0Kv14</ci>
+			<ci>alpha_inact14</ci>
+		</apply>
+		<apply>
+			<eq />
+			<ci>CI1Kv14_to_C1Kv14</ci>
+			<apply>
+				<divide />
+				<ci>alpha_inact14</ci>
+				<ci>b1Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>CI2Kv14_to_C2Kv14</ci>
+			<apply>
+				<divide />
+				<ci>alpha_inact14</ci>
+				<ci>b2Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>CI3Kv14_to_C3Kv14</ci>
+			<apply>
+				<divide />
+				<ci>alpha_inact14</ci>
+				<ci>b3Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>OIKv14_to_OKv14</ci>
+			<apply>
+				<divide />
+				<ci>alpha_inact14</ci>
+				<ci>b4Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_C0</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>C0Kv14_to_C1Kv14</ci>
+					<ci>C0Kv14_to_CI0Kv14</ci>
+				</apply>
+				<ci>C0Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_C0</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>C1Kv14_to_C0Kv14</ci>
+					<ci>C1Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>CI0Kv14_to_C0Kv14</ci>
+					<ci>CI0Kv14</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>C0Kv14</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a2_C0</ci>
+				<ci>a1_C0</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_C1</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>C1Kv14_to_C2Kv14</ci>
+					<ci>C1Kv14_to_C0Kv14</ci>
+					<ci>C1Kv14_to_CI1Kv14</ci>
+				</apply>
+				<ci>C1Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_C1</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>C2Kv14_to_C1Kv14</ci>
+					<ci>C2Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>CI1Kv14_to_C1Kv14</ci>
+					<ci>CI1Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>C0Kv14_to_C1Kv14</ci>
+					<ci>C0Kv14</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>C1Kv14</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a2_C1</ci>
+				<ci>a1_C1</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_C2</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>C2Kv14_to_C3Kv14</ci>
+					<ci>C2Kv14_to_C1Kv14</ci>
+					<ci>C2Kv14_to_CI2Kv14</ci>
+				</apply>
+				<ci>C2Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_C2</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>C3Kv14_to_C2Kv14</ci>
+					<ci>C3Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>CI2Kv14_to_C2Kv14</ci>
+					<ci>CI2Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>C1Kv14_to_C2Kv14</ci>
+					<ci>C1Kv14</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>C2Kv14</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a2_C2</ci>
+				<ci>a1_C2</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_C3</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>C3Kv14_to_OKv14</ci>
+					<ci>C3Kv14_to_C2Kv14</ci>
+					<ci>C3Kv14_to_CI3Kv14</ci>
+				</apply>
+				<ci>C3Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_C3</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>OKv14_to_C3Kv14</ci>
+					<ci>OKv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>CI3Kv14_to_C3Kv14</ci>
+					<ci>CI3Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>C2Kv14_to_C3Kv14</ci>
+					<ci>C2Kv14</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>C3Kv14</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a2_C3</ci>
+				<ci>a1_C3</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_O</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>OKv14_to_C3Kv14</ci>
+					<ci>OKv14_to_OIKv14</ci>
+				</apply>
+				<ci>OKv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_O</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>C3Kv14_to_OKv14</ci>
+					<ci>C3Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>OIKv14_to_OKv14</ci>
+					<ci>OIKv14</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>OKv14</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a2_O</ci>
+				<ci>a1_O</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_CI0</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>CI0Kv14_to_C0Kv14</ci>
+					<ci>CI0Kv14_to_CI1Kv14</ci>
+				</apply>
+				<ci>CI0Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_CI0</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>C0Kv14_to_CI0Kv14</ci>
+					<ci>C0Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>CI1Kv14_to_CI0Kv14</ci>
+					<ci>CI1Kv14</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>CI0Kv14</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a2_CI0</ci>
+				<ci>a1_CI0</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_CI1</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>CI1Kv14_to_CI2Kv14</ci>
+					<ci>CI1Kv14_to_C1Kv14</ci>
+					<ci>CI1Kv14_to_CI0Kv14</ci>
+				</apply>
+				<ci>CI1Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_CI1</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>CI2Kv14_to_CI1Kv14</ci>
+					<ci>CI2Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>C1Kv14_to_CI1Kv14</ci>
+					<ci>C1Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>CI0Kv14_to_CI1Kv14</ci>
+					<ci>CI0Kv14</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>CI1Kv14</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a2_CI1</ci>
+				<ci>a1_CI1</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_CI2</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>CI2Kv14_to_CI3Kv14</ci>
+					<ci>CI2Kv14_to_C2Kv14</ci>
+					<ci>CI2Kv14_to_CI1Kv14</ci>
+				</apply>
+				<ci>CI2Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_CI2</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>CI3Kv14_to_CI2Kv14</ci>
+					<ci>CI3Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>C2Kv14_to_CI2Kv14</ci>
+					<ci>C2Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>CI1Kv14_to_CI2Kv14</ci>
+					<ci>CI1Kv14</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>CI2Kv14</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a2_CI2</ci>
+				<ci>a1_CI2</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_CI3</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>CI3Kv14_to_OIKv14</ci>
+					<ci>CI3Kv14_to_C3Kv14</ci>
+					<ci>CI3Kv14_to_CI2Kv14</ci>
+				</apply>
+				<ci>CI3Kv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_CI3</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>OIKv14_to_CI3Kv14</ci>
+					<ci>OIKv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>C3Kv14_to_CI3Kv14</ci>
+					<ci>C3Kv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>CI2Kv14_to_CI3Kv14</ci>
+					<ci>CI2Kv14</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>CI3Kv14</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a2_CI3</ci>
+				<ci>a1_CI3</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a1_OI</ci>
+			<apply>
+				<times />
+				<apply>
+					<plus />
+					<ci>OIKv14_to_OKv14</ci>
+					<ci>OIKv14_to_CI3Kv14</ci>
+				</apply>
+				<ci>OIKv14</ci>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<ci>a2_OI</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>OKv14_to_OIKv14</ci>
+					<ci>OKv14</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>CI3Kv14_to_OIKv14</ci>
+					<ci>CI3Kv14</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>OIKv14</ci>
+			</apply>
+			<apply>
+				<minus />
+				<ci>a2_OI</ci>
+				<ci>a1_OI</ci>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component />
+</model>

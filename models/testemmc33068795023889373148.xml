@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+<connection>
+	<map_components component_1="membrane" component_2="environment" />
+	<map_variables variable_1="time" variable_2="time" />
+</connection>
+<connection>
+	<map_components component_1="ionic_current" component_2="environment" />
+	<map_variables variable_1="time" variable_2="time" />
+</connection>
+<connection>
+	<map_components component_1="membrane" component_2="ionic_current" />
+	<map_variables variable_1="V" variable_2="" />
+</connection>
+</model>

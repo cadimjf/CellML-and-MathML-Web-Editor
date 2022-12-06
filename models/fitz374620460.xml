@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+<units name="millisecond">
+	<unit prefix="milli" units="second" />
+</units>
+<units name="per_millisecond">
+	<unit exponent="-1" prefix="milli" units="second" />
+</units>
+<units name="millivolt" />
+<units name="microA_per_mm2">
+	<unit prefix="milli" units="volt" />
+	<unit prefix="micro" units="ampere">
+		<unit prefix="micro" units="farad">
+			<unit exponent="-2" prefix="milli" units="metre">
+				<variable initial_value="-75.0" name="Vth" public_interface="out" units="millivolt" />
+			</unit>
+		</unit>
+	</unit>
+	<unit exponent="-2" prefix="milli" units="metre" />
+</units>
+<units name="microF_per_mm2" />
+<component name="environment">
+	<variable name="time" public_interface="out" units="millisecond" />
+</component>
+<component name="membrane">
+	<variable name="u" public_interface="out" units="dimensionless" />
+	<variable initial_value="-85.0" name="Vr" public_interface="out" units="millivolt" />
+	<variable initial_value="15.0" name="Vp" public_interface="out" units="millivolt" />
+	<variable initial_value="0.01" name="Cm" units="microF_per_mm2" />
+	<variable name="Vm" units="millivolt" />
+	<variable name="I_ion" public_interface="in" units="microA_per_mm2" />
+	<variable name="time" public_interface="in" units="millisecond" />
+	<math>
+		<apply id="Vm_diff_eq">
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>Vm</ci>
+			</apply>
+			<apply>
+				<divide />
+				<apply>
+					<minus />
+					<ci>I_ion</ci>
+				</apply>
+				<ci>Cm</ci>
+			</apply>
+		</apply>
+		<apply id="u_calculation">
+			<eq />
+			<ci>u</ci>
+			<apply>
+				<divide />
+				<apply>
+					<minus />
+					<ci>Vm</ci>
+					<ci>Vr</ci>
+				</apply>
+				<apply>
+					<minus />
+					<ci>Vp</ci>
+					<ci>Vr</ci>
+				</apply>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component name="ionic_current">
+	<variable name="I_ion" public_interface="out" units="microA_per_mm2" />
+	<variable name="alpha" units="dimensionless" />
+	<variable initial_value="0.175" name="c1" units="microA_per_mm2" />
+	<variable initial_value="0.03" name="c2" units="microA_per_mm2" />
+	<variable name="v" public_interface="in" units="dimensionless" />
+	<variable name="u" public_interface="in" units="dimensionless" />
+	<variable name="Vr" public_interface="in" units="millivolt" />
+	<variable name="Vth" public_interface="in" units="millivolt" />
+	<variable name="Vp" public_interface="in" units="millivolt" />
+	<variable name="time" public_interface="in" units="millisecond" />
+	<math>
+		<apply id="alpha_calculation">
+			<eq />
+			<ci>alpha</ci>
+			<apply>
+				<divide />
+				<apply>
+					<minus />
+					<ci>Vth</ci>
+					<ci>Vr</ci>
+				</apply>
+				<apply>
+					<minus />
+					<ci>Vp</ci>
+					<ci>Vr</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply id="I_ion_calculation">
+			<eq />
+			<ci>I_ion</ci>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<ci>c1</ci>
+					<ci>u</ci>
+					<apply>
+						<minus />
+						<ci>u</ci>
+						<ci>alpha</ci>
+					</apply>
+					<apply>
+						<minus />
+						<ci>u</ci>
+						<cn units="dimensionless">1.0</cn>
+					</apply>
+				</apply>
+				<apply>
+					<times />
+					<ci>c2</ci>
+					<ci>v</ci>
+				</apply>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component name="recovery_variable">
+	<variable name="v" public_interface="out" units="dimensionless" />
+	<variable initial_value="0.011" name="b" units="per_millisecond" />
+	<variable initial_value="0.55" name="d" units="dimensionless" />
+	<variable name="u" public_interface="in" units="dimensionless" />
+	<variable name="time" public_interface="in" units="millisecond" />
+	<math>
+		<apply id="v_diff_eq">
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>v</ci>
+			</apply>
+			<apply>
+				<times />
+				<ci>b</ci>
+				<apply>
+					<minus />
+					<ci>u</ci>
+					<apply>
+						<times />
+						<ci>d</ci>
+						<ci>v</ci>
+					</apply>
+				</apply>
+			</apply>
+		</apply>
+	</math>
+</component>
+<connection>
+	<map_components component_1="membrane" component_2="environment" />
+	<map_variables variable_1="time" variable_2="time" />
+</connection>
+<connection>
+	<map_components component_1="ionic_current" component_2="environment" />
+	<map_variables variable_1="time" variable_2="time" />
+</connection>
+<connection>
+	<map_components component_1="recovery_variable" component_2="environment" />
+	<map_variables variable_1="time" variable_2="time" />
+</connection>
+<connection>
+	<map_components component_1="membrane" component_2="ionic_current" />
+	<map_variables variable_1="u" variable_2="u" />
+	<map_variables variable_1="Vr" variable_2="Vr" />
+	<map_variables variable_1="Vth" variable_2="Vth" />
+	<map_variables variable_1="Vp" variable_2="Vp" />
+	<map_variables variable_1="I_ion" variable_2="I_ion" />
+</connection>
+<connection>
+	<map_components component_1="membrane" component_2="recovery_variable" />
+	<map_variables variable_1="u" variable_2="u" />
+</connection>
+<connection>
+	<map_components component_1="ionic_current" component_2="recovery_variable" />
+	<map_variables variable_1="v" variable_2="v" />
+</connection>
+</model>
