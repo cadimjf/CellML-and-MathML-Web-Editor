@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+<units name="millisecond">
+	<unit prefix="milli" units="second" />
+</units>
+<units name="per_millisecond">
+	<unit exponent="-1" prefix="milli" units="second" />
+</units>
+<units name="millivolt">
+	<unit prefix="milli" units="volt" />
+</units>
+<component name="environment">
+	<variable name="time" public_interface="out" units="millisecond" />
+</component>
+<component name="membrane">
+	<variable initial_value="15.0" name="T" public_interface="out" units="millivolt" />
+	<variable name="time" public_interface="in" units="millisecond" />
+	<math>
+		<apply id="equation1">
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>T</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<apply>
+						<minus />
+						<ci>Kdt</ci>
+					</apply>
+					<ci>T</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>Kpt</ci>
+					<ci>alphaT</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply id="alpha">
+			<eq />
+			<ci>alphaT</ci>
+			<piecewise>
+				<piece>
+					<apply>
+						<times />
+						<ci>r1</ci>
+						<ci>T</ci>
+					</apply>
+					<apply>
+						<lt />
+						<apply>
+							<log10 />
+							<ci>n1</ci>
+						</apply>
+						<ci>at1</ci>
+					</apply>
+				</piece>
+				<otherwise>
+					<apply>
+						<times />
+						<apply>
+							<times />
+							<apply>
+								<exp />
+								<apply>
+									<power />
+									<apply>
+										<minus />
+										<apply>
+											<divide />
+											<apply>
+												<minus />
+												<apply>
+													<log10 />
+													<ci>n1</ci>
+												</apply>
+												<ci>at1</ci>
+											</apply>
+											<ci>at2</ci>
+										</apply>
+									</apply>
+									<cn>2</cn>
+								</apply>
+							</apply>
+							<ci>r1</ci>
+						</apply>
+						<ci>T</ci>
+					</apply>
+				</otherwise>
+			</piecewise>
+		</apply>
+	</math>
+	<variable initial_value="1" name="Kdt" />
+	<variable name="Kpt" />
+	<variable name="alphaT" />
+	<variable name="r1" />
+	<variable name="n1" />
+	<variable name="at1" />
+	<variable name="at2" />
+</component>
+<component name="ionic_current">
+	<variable name="I_ion" public_interface="out" units="millivolt" />
+	<variable name="V" public_interface="in" units="millivolt" />
+	<variable name="time" public_interface="in" units="millisecond" />
+	<math>
+		<apply id="equation 2">
+			<eq />
+			<ci>I_ion</ci>
+			<apply>
+				<divide />
+				<ci>V</ci>
+				<ci>time</ci>
+			</apply>
+		</apply>
+	</math>
+</component>
+<connection>
+	<map_components component_1="membrane" component_2="environment" />
+	<map_variables variable_1="time" variable_2="time" />
+</connection>
+<connection>
+	<map_components component_1="ionic_current" component_2="environment" />
+	<map_variables variable_1="time" variable_2="time" />
+</connection>
+<connection>
+	<map_components component_1="membrane" component_2="ionic_current" />
+	<map_variables variable_1="T" variable_2="" />
+</connection>
+</model>

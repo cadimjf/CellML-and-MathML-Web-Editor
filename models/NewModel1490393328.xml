@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+<units name="per_millisecond">
+	<unit exponent="-1" prefix="milli" units="second" />
+</units>
+<units name="millisecond">
+	<unit prefix="milli" units="second" />
+</units>
+<units name="millivolt">
+	<unit prefix="milli" units="volt" />
+</units>
+<component name="ctreg">
+	<math>
+		<apply id="ctregdiff">
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>t</ci>
+				</bvar>
+				<ci>x</ci>
+			</apply>
+			<apply>
+				<minus />
+				<apply>
+					<times />
+					<ci>beta_CTreg</ci>
+					<ci>treg</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>m_CTreg</ci>
+					<ci>ctreg</ci>
+				</apply>
+			</apply>
+		</apply>
+	</math>
+	<component name="cm">
+		<math>
+			<apply>
+				<eq />
+				<apply>
+					<diff />
+					<bvar>
+						<ci>t</ci>
+					</bvar>
+					<ci>x</ci>
+				</apply>
+				<apply>
+					<minus />
+					<apply>
+						<times />
+						<apply>
+							<times />
+							<ci>beta_CM</ci>
+							<ci>nd</ci>
+						</apply>
+						<ci>ma</ci>
+					</apply>
+					<apply>
+						<times />
+						<ci>m_CM</ci>
+						<ci>cm</ci>
+					</apply>
+				</apply>
+			</apply>
+		</math>
+	</component>
+</component>
+<component name="ct">
+	<variable initial_value="0.06" name="beta_CT" public_interface="out" units="millivolt" />
+	<variable initial_value="2.16" name="m_CT" public_interface="in" units="millivolt" />
+	<math>
+		<apply id="ctdiff">
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>t</ci>
+				</bvar>
+				<ci>x</ci>
+			</apply>
+			<apply>
+				<minus />
+				<apply>
+					<times />
+					<ci>beta_CT</ci>
+					<ci>tcell</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>m_CT</ci>
+					<ci>ct</ci>
+				</apply>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component name="ch">
+	<variable initial_value="0.1" name="betaCH_MA" units="millivolt" />
+	<variable initial_value="0.4" name="betaCH_N" units="millivolt" />
+	<variable initial_value="14.4" name="m_CH" public_interface="in" units="millisecond" />
+	<math>
+		<apply id="diffch">
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>ch</ci>
+			</apply>
+			<apply>
+				<minus />
+				<apply>
+					<times />
+					<apply>
+						<plus />
+						<apply>
+							<times />
+							<ci>betaCH_MA</ci>
+							<ci>ma</ci>
+						</apply>
+						<apply>
+							<times />
+							<ci>beta_CH_N</ci>
+							<ci>n</ci>
+						</apply>
+					</apply>
+					<ci>a</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>m_CH</ci>
+					<ci>ch</ci>
+				</apply>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component name="environment">
+	<variable name="time" public_interface="out" units="millisecond" />
+</component>
+<component name="cm">
+	<math>
+		<apply>
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>t</ci>
+				</bvar>
+				<ci>x</ci>
+			</apply>
+			<apply>
+				<minus />
+				<apply>
+					<times />
+					<apply>
+						<times />
+						<ci>beta_CM</ci>
+						<ci>nd</ci>
+					</apply>
+					<ci>ma</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>m_CM</ci>
+					<ci>cm</ci>
+				</apply>
+			</apply>
+		</apply>
+	</math>
+</component>
+<component name="n">
+	<math />
+</component>
+<connection>
+	<map_components component_1="ch" component_2="ct" />
+	<map_variables variable_1="" variable_2="" />
+</connection>
+<connection>
+	<map_components component_1="ch" component_2="environment" />
+	<map_variables variable_1="m_CH" variable_2="time" />
+</connection>
+<connection>
+	<map_components component_1="ct" component_2="environment" />
+	<map_variables variable_1="" variable_2="time" />
+</connection>
+</model>

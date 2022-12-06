@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+<units name="millisecond">
+	<unit prefix="milli" units="second" />
+</units>
+<units name="per_millisecond">
+	<unit exponent="-1" prefix="milli" units="second" />
+</units>
+<units name="millivolt">
+	<unit prefix="milli" units="volt" />
+</units>
+<component name="global">
+	<variable name="Kdt" units="millivolt" />
+	<variable name="time" public_interface="in" units="millisecond" />
+	<math>
+		<apply id="Ig">
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>F</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<times />
+					<apply>
+						<minus />
+						<apply>
+							<plus />
+							<ci>Kdf</ci>
+							<ci>Kdc</ci>
+						</apply>
+					</apply>
+					<ci>F</ci>
+				</apply>
+				<apply>
+					<times />
+					<ci>Ksf</ci>
+					<ci>alphaB</ci>
+				</apply>
+			</apply>
+		</apply>
+		<apply id="Celulas T">
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>T</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<plus />
+					<apply>
+						<times />
+						<apply>
+							<minus />
+							<ci>Kdt</ci>
+						</apply>
+						<ci>T</ci>
+					</apply>
+					<apply>
+						<times />
+						<ci>Kpt</ci>
+						<ci>alphaT</ci>
+					</apply>
+				</apply>
+				<ci>E</ci>
+			</apply>
+		</apply>
+		<apply id="Celulas B">
+			<eq />
+			<apply>
+				<diff />
+				<bvar>
+					<ci>time</ci>
+				</bvar>
+				<ci>T</ci>
+			</apply>
+			<apply>
+				<plus />
+				<apply>
+					<plus />
+					<apply>
+						<times />
+						<apply>
+							<minus />
+							<ci>Kdb</ci>
+						</apply>
+						<ci>B</ci>
+					</apply>
+					<apply>
+						<times />
+						<ci>Kpb</ci>
+						<ci>alphaB</ci>
+					</apply>
+				</apply>
+				<ci>C</ci>
+			</apply>
+		</apply>
+	</math>
+	<variable name="T" />
+	<variable name="B" />
+	<variable name="F" />
+	<variable name="Kpt" />
+	<variable name="alphaT" />
+	<variable name="E" />
+	<variable name="Kdb" />
+	<variable name="Kpb" />
+	<variable name="alphaB" />
+	<variable name="C" />
+	<variable name="Kdf" />
+	<variable name="Kdc" />
+	<variable name="Ksf" />
+</component>
+<component name="environment">
+	<variable name="time" public_interface="out" units="millisecond" />
+</component>
+<connection>
+	<map_components component_1="global" component_2="environment" />
+	<map_variables variable_1="time" variable_2="time" />
+</connection>
+<connection>
+	<map_components component_1="" component_2="environment" />
+	<map_variables variable_1="" variable_2="time" />
+</connection>
+<connection>
+	<map_components component_1="global" component_2="" />
+	<map_variables variable_1="" variable_2="" />
+</connection>
+</model>
