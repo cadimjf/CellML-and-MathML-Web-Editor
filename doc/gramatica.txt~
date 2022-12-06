@@ -1,0 +1,23 @@
+
+    expr -> attrib
+    attrib -> or attrib'
+    attrib' -> = or attrib' | E |= select
+    or -> and or'
+    or' -> || and or' | E
+    and -> equaldiff and'
+    and' -> && equaldiff and' | E
+    equaldiff -> lessthan equaldiff'
+    equaldiff' -> == lessthan equaldiff' | != lessthan equaldiff' | E
+    lessthan -> sum lessthan'
+    lessthan' -> < sum lessthan' | <= sum lessthan' | >= sum lessthan' | > sum lessthan' | E
+    sum -> mult sum'
+    sum' -> + mult sum' | - mult sum' | E
+    mult -> not mult'
+    mult' -> * not mult' | / not mult' | % not mult' | & not mult' | E | ^ not mult' 
+    not -> not'|value 
+    not' -> ! value  | + value  | - value  | E
+    value -> ID | NUM | ID () | ID ( exprlist | ( expr )| reservedWords
+    exprlist -> ) | expr exprlisttail )
+    select -> SELECT{ casee+ otherwise}
+    casee -> value CASE: orr;
+    otherwise -> OTHERWISE(orr);

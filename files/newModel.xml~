@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model>
+	<units name="millivolt">
+		<unit prefix="milli" units="volt" />
+	</units>
+
+	<component name="SampleComponent">
+		<variable name="Var1" public_interface="out" units="millivolt" />
+		<variable name="Var2" units="millivolt" />
+		<variable name="Var3" units="millivolt" />
+		<math>
+			<apply id="Sample">
+				<eq />
+				<ci>Var2</ci>
+				<apply>
+					<plus />
+					<ci>Var3</ci>
+					<ci>Var1</ci>
+				</apply>
+			</apply>
+		</math>
+	</component>
+</model>

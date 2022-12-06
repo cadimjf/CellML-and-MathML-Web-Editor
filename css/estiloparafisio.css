@@ -1,0 +1,108 @@
+html { 
+        background: #F3F3F3;
+        font-family: Verdana,"Bitstream Vera Sans",Arial;
+	
+}
+.hhh{
+        background: #F3F3F3;
+        background: #FFFFFF;
+	font-family: Verdana,"Bitstream Vera Sans",Arial;
+	background-image: url(image/fundo.gif);
+  	background-position: top left;
+  	background-repeat: repeat-y;
+}
+body {
+  margin: 0px 0px 0px 0px;
+	scrollbar-face-color: #B9B9B9;
+	scrollbar-shadow-color: #C0C0C0;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-3dlight-color: #F0F0F0;
+	scrollbar-darkshadow-color: #000000;
+	scrollbar-track-color: #DDDDDD;
+	scrollbar-arrow-color: #FFFFFF;   
+  }
+
+a:link    	{ text-decoration:underline; color: #4E74A6; font-weight: bold; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+a:visited 	{ text-decoration:underline; color: #4E74A6; font-weight: bold; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+a:active  	{ text-decoration:underline; color: #FF5809; font-weight: bold; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+a:hover		{ text-decoration:underline; color: #FF5809; font-weight: bold; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+
+a.linkmenu:link    	{ text-decoration:underline; color: #4E74A6; font-weight: bold; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+a.linkmenu:visited 	{ text-decoration:underline; color: #4E74A6; font-weight: bold; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+a.linkmenu:active  	{ text-decoration:underline; color: #FF5809; font-weight: bold; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+a.linkmenu:hover		{ text-decoration:underline; color: #FF5809; font-weight: bold; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+
+a.linkinterno:link    	{ text-decoration:underline; color: #FF0000; font-weight: bold; font-family: Verdana,Bitstream Vera Sans,Arial;}
+a.linkinterno:visited 	{ text-decoration:underline; color: #FF0000; font-weight: bold; font-family: Verdana,Bitstream Vera Sans,Arial;}
+a.linkinterno:active  	{ text-decoration:underline; color: #4E74A6; font-weight: bold; font-family: Verdana,Bitstream Vera Sans,Arial;}
+a.linkinterno:hover		{ text-decoration:underline; color: #4E74A6; font-weight: bold; font-family: Verdana,Bitstream Vera Sans,Arial;}
+
+
+a img {	border-style: none; }
+.borda {	border-style: solid; color:#C0C0C0;}
+.imagemlink {	border-style: solid; margin-left:4pt; margin-right:4pt; color:#E7E7E7;}
+ 
+.tabela0 {width:200px; border-style:none;}
+.tabela3 {margin:5px; border-style:none;}
+
+.titulo	 	{ font-size:11pt; color: #CC4E00; text-align: justify; font-weight: bold; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+.titulosetup	{ font-size:10pt; color: #707070; font-weight: bold; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+.texto	 	{ font-size:9pt; color: #000000; text-align: justify; font-weight: normal; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+.textop 	{ font-size:8pt; color: #3E3E3E; font-weight: normal; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+.textobranco 	{ font-size:8pt; color: #FFFFFF; font-weight: bold; font-family: Verdana,"Bitstream Vera Sans",Arial;}
+.textolink  { font-size:9pt; color: #4E74A6; text-align: justify; font-weight: normal; font-family: Verdana,Bitstream Vera Sans,Arial;}
+
+div.nobr	{display:inline;}
+div.identa	{ margin-left:6pt; margin-bottom:0pt; margin-top:0pt;}
+div.centro	{text-align:center;}
+div.justifica	{text-align:justify; margin-bottom:4pt;}
+
+input					{ font-family: Verdana,"Bitstream Vera Sans",Arial; }
+.botao					{border: 1px solid #464646; background-color: #ffffff; font-size:7.5pt; font-weight: bold; cursor:pointer;  font-family: Verdana,"Bitstream Vera Sans",Arial;}
+.campotexto		{ border: solid #999999; background-color: #FFFFFF; font-size:8pt;  font-family: Verdana,"Bitstream Vera Sans",Arial;}
+
+.combo {
+	background-color: #FFFFFF; 
+	font-size:8pt; 
+	color:#000000; 
+	font-family: Verdana,"Bitstream Vera Sans",Arial; 
+	}
+.tdBorder1
+{
+ BORDER-TOP: #4E74A6 1px solid;
+ BORDER-RIGHT: #4E74A6 1px solid;
+ BORDER-LEFT: #4E74A6 1px solid;
+ BORDER-BOTTOM: none;
+
+} 
+.tdBorder2
+{
+ BORDER-TOP: none;
+ BORDER-RIGHT: none;
+ BORDER-LEFT: none;
+ BORDER-BOTTOM: #4E74A6 1px solid;
+
+} 
+.tdBorder3
+{
+ BORDER-TOP: none;
+ BORDER-RIGHT: none;
+ BORDER-LEFT: none;
+ BORDER-BOTTOM: none;
+
+} 
+.tdBorder4
+{
+  BORDER-RIGHT: #4E74A6 1px solid;
+ BORDER-LEFT: #4E74A6 1px solid;
+ BORDER-BOTTOM: #4E74A6 1px solid;
+
+} 
+.tdBorder5
+{
+  BORDER-RIGHT: #4E74A6 1px solid;
+ BORDER-LEFT: #4E74A6 1px solid;
+ BORDER-BOTTOM: #4E74A6 1px solid;
+ BORDER-TOP: #4E74A6 1px solid;
+
+} 

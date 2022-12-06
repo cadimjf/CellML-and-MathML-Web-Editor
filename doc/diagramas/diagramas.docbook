@@ -1,0 +1,1728 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD Simplified DocBook XML V4.1.2.5//EN" "http://www.oasis-open.org/docbook/xml/simple/4.1.2.5/sdocbook.dtd">
+<article role="specification">
+  <title>UML Model</title>
+  <title>Logical View</title>
+  <title>Use Case View</title>
+  <title>Component View</title>
+  <title>Deployment View</title>
+  <title>Entity Relationship Model</title>
+  <section id="actors">
+    <title>Actors</title>
+  </section>
+  <section id="usecases">
+    <title>Use Cases</title>
+  </section>
+  <section id="interfaces">
+    <title>Interfaces</title>
+  </section>
+  <section id="classes">
+    <title>Classes</title>
+    <section>
+      <title>node</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">node</entry>
+            </row>
+          </thead>
+          <tbody>
+            <section>
+              <title>Associations</title>
+              <para>visibility, type, properties.</para>
+              <para>public</para>
+              <para/>
+              <para>
+      Rolename: 
+    (none)</para>
+              <para>public</para>
+              <para/>
+              <para>
+      Rolename: 
+    (none)</para>
+              <para>public</para>
+              <para/>
+              <para>
+      Rolename: 
+    (none)</para>
+            </section>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">Attributes:</entry>
+            </row>
+            <row>
+              <entry role="feature-heading">visibility</entry>
+              <entry role="feature-heading">type</entry>
+              <entry role="feature-heading">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">idnode</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">idparent</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">item_order</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">idprojeto</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">value</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">tipo</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">table</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">attribute</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">iduser</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">attrname</entry>
+            </row>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">
+                <para>Operations:</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-heading">
+                <para>visibility</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>return</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>name</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">__construct</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">getNode</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">getNodeByNameValueProject</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">getFields</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">insert</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment">Esta função insere um nó no banco.</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">update</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">deleteNode</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getNodeByAttribute</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">deleteAttributes</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">deleteByProject</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">listByParent</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">listByProject</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">getAttrName</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">listByProjectName</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">listAllPossibleAttributes</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">listAllAttributes</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getChild</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">listComponentsByProject</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getNodeByProjectName</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">listComponents</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getVarByProjectName</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">listVariables</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getAttribute</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getConnectionByVar</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">getMapConnection</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>object</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">object</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry namest="c1" nameend="c3">
+                <para/>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>array</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">array</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry namest="c1" nameend="c3">
+                <para/>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>str</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">str</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry namest="c1" nameend="c3">
+                <para/>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>DataBase</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">DataBase</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">Attributes:</entry>
+            </row>
+            <row>
+              <entry role="feature-heading">visibility</entry>
+              <entry role="feature-heading">type</entry>
+              <entry role="feature-heading">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">local</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">user</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">password</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">dataBase</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">connection</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">iduser</entry>
+            </row>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">
+                <para>Operations:</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-heading">
+                <para>visibility</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>return</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>name</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">__construct</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">newConnection</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">closeConnection</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">execSQL</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">logSQL</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>mysql_connect</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">mysql_connect</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry namest="c1" nameend="c3">
+                <para/>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>attributes</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">attributes</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">Attributes:</entry>
+            </row>
+            <row>
+              <entry role="feature-heading">visibility</entry>
+              <entry role="feature-heading">type</entry>
+              <entry role="feature-heading">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">idnode</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">value</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">table</entry>
+            </row>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">
+                <para>Operations:</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-heading">
+                <para>visibility</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>return</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>name</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">__construct</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getAttr</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getFields</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">insert</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">update</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">deleteAttr</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">listAttributesByNode</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">deleteAllAttr</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>AttrNode</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">AttrNode</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">Attributes:</entry>
+            </row>
+            <row>
+              <entry role="feature-heading">visibility</entry>
+              <entry role="feature-heading">type</entry>
+              <entry role="feature-heading">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">nodename</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">attrname</entry>
+            </row>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">
+                <para>Operations:</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-heading">
+                <para>visibility</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>return</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>name</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getAttr</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getFields</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">listTags</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>grammar</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">grammar</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">Attributes:</entry>
+            </row>
+            <row>
+              <entry role="feature-heading">visibility</entry>
+              <entry role="feature-heading">type</entry>
+              <entry role="feature-heading">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">project</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail">node</entry>
+              <entry role="feature-detail">node</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">code</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">currentParent</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail">attributes</entry>
+              <entry role="feature-detail">attribute</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">nm</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">expressao</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">equacao</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">erro</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">msg</entry>
+            </row>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">
+                <para>Operations:</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-heading">
+                <para>visibility</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>return</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>name</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">__construct</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">processaParenteses</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">confereExpressaoValida</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getOperador</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">confereParenteses</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">insereNode</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">estadoEquacao</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">estadoExpressao</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">estadoTermo</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">estadoFator</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>MathCode</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">MathCode</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">Attributes:</entry>
+            </row>
+            <row>
+              <entry role="feature-heading">visibility</entry>
+              <entry role="feature-heading">type</entry>
+              <entry role="feature-heading">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">idnode</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">id</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">code</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">table</entry>
+            </row>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">
+                <para>Operations:</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-heading">
+                <para>visibility</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>return</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>name</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">__construct</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getMathCode</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>mount_tree</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">mount_tree</entry>
+            </row>
+          </thead>
+          <tbody>
+            <section>
+              <title>Associations</title>
+              <para>visibility, type, properties.</para>
+              <para>public</para>
+              <para/>
+              <para>
+      Rolename: 
+    (none)</para>
+              <para>public</para>
+              <para/>
+              <para>
+      Rolename: 
+    (none)</para>
+              <para>public</para>
+              <para/>
+              <para>
+      Rolename: 
+    (none)</para>
+            </section>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">Attributes:</entry>
+            </row>
+            <row>
+              <entry role="feature-heading">visibility</entry>
+              <entry role="feature-heading">type</entry>
+              <entry role="feature-heading">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">lastId</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail">parser_dom</entry>
+              <entry role="feature-detail">parser</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">nomeProj</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">codProj</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">rootNode</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">tipo</entry>
+            </row>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">
+                <para>Operations:</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-heading">
+                <para>visibility</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>return</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>name</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">__construct</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getRoot</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">newNode</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">listTagXml</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">saveDataBase</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">insertEspecialAttr</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>parser_dom</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">parser_dom</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">Attributes:</entry>
+            </row>
+            <row>
+              <entry role="feature-heading">visibility</entry>
+              <entry role="feature-heading">type</entry>
+              <entry role="feature-heading">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">dom</entry>
+            </row>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">
+                <para>Operations:</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-heading">
+                <para>visibility</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>return</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>name</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">__construct</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">getNode</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">listNodesByTag</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">dom2array</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>DOMDocument</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">DOMDocument</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry namest="c1" nameend="c3">
+                <para/>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>PrintMathML</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">PrintMathML</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">Attributes:</entry>
+            </row>
+            <row>
+              <entry role="feature-heading">visibility</entry>
+              <entry role="feature-heading">type</entry>
+              <entry role="feature-heading">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">project</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail">node</entry>
+              <entry role="feature-detail">node</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">treeRoot</entry>
+            </row>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">
+                <para>Operations:</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-heading">
+                <para>visibility</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>return</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>name</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">__construct</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">getXml</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">getXmlByParent</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">printApply</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>XmlFromDb</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">XmlFromDb</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">Attributes:</entry>
+            </row>
+            <row>
+              <entry role="feature-heading">visibility</entry>
+              <entry role="feature-heading">type</entry>
+              <entry role="feature-heading">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">project</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail">node</entry>
+              <entry role="feature-detail">node</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">treeRoot</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">file</entry>
+            </row>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">
+                <para>Operations:</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-heading">
+                <para>visibility</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>return</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>name</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">__construct</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">getXml</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">new_operation</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">getXmlByParent</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">printNode</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>arry</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">arry</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry namest="c1" nameend="c3">
+                <para/>
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section>
+      <title>treefromdb</title>
+      <table frame="all">
+        <title/>
+        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+          <colspec colname="c1"/>
+          <colspec colname="c2"/>
+          <colspec colname="c3"/>
+          <thead>
+            <row>
+              <entry role="class-title">Class</entry>
+              <entry role="class-name" namest="c2" nameend="c3">treefromdb</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">Attributes:</entry>
+            </row>
+            <row>
+              <entry role="feature-heading">visibility</entry>
+              <entry role="feature-heading">type</entry>
+              <entry role="feature-heading">name</entry>
+            </row>
+            <row>
+              <entry role="feature-detail">private</entry>
+              <entry role="feature-detail"/>
+              <entry role="feature-detail">root</entry>
+            </row>
+            <row>
+              <entry role="info-title" namest="c1" nameend="c3">
+                <para>Operations:</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-heading">
+                <para>visibility</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>return</para>
+              </entry>
+              <entry role="feature-heading">
+                <para>name</para>
+              </entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">__construct</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">getXMLFromDb</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">getLevelFromDB</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+            <row>
+              <entry role="feature-detail">public</entry>
+              <entry role="feature-detail">
+                <para role="datatype">void</para>
+              </entry>
+              <entry role="feature-detail">getGroupFromDB</entry>
+            </row>
+            <row>
+              <entry role="comment"/>
+              <entry namest="c2" nameend="c3" role="comment"></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+  </section>
+  <section id="diagrams">
+    <title>Diagrams</title>
+<!--diagrambegin1namebeginclass diagramnameend-->
+<!--diagram1documentationbegindocumentationend-->
+    <section>
+      <title>class diagram</title>
+      <para></para>
+      <mediaobject>
+        <imageobject>
+          <imagedata format="PNG" fileref="class diagram.png"/>
+        </imageobject>
+      </mediaobject>
+    </section>
+    <section>
+      <title>Classes:</title>
+      <para/>
+    </section>
+<!--diagramend1-->
+<!--diagrambegin2namebeginMathML Compilernameend-->
+<!--diagram2documentationbegindocumentationend-->
+    <section>
+      <title>MathML Compiler</title>
+      <para></para>
+      <mediaobject>
+        <imageobject>
+          <imagedata format="PNG" fileref="MathML Compiler.png"/>
+        </imageobject>
+      </mediaobject>
+    </section>
+<!--diagramend2-->
+<!--diagrambegin3namebeginentity relationship diagramnameend-->
+<!--diagram3documentationbegindocumentationend-->
+    <section>
+      <title>entity relationship diagram</title>
+      <para></para>
+      <mediaobject>
+        <imageobject>
+          <imagedata format="PNG" fileref="entity relationship diagram.png"/>
+        </imageobject>
+      </mediaobject>
+    </section>
+<!--diagramend3-->
+  </section>
+</article>
